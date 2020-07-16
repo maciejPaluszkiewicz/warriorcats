@@ -13,7 +13,7 @@ import './App.css';
 
 function App() {
 
-  const URL = '';
+  const URL = 'https://run.mocky.io/v3/3e3b982a-f223-4ec1-92ba-c6475e8a8ae8';
 
   const [warriorList, setWarriorList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,11 +25,13 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
-        setWarriorList(data);
+        setWarriorList(data)
+        console.log("data", data);
       })
       .catch((e) => {
         setLoading(false);
         setError('fetch failed');
+        console.log("err", e);
       });
   }, []);
 
@@ -60,7 +62,7 @@ function App() {
             <MyGang />
           </Route>
           <Route path="/">
-            <WarriorList />
+            <WarriorList warriors={warriorList} />
           </Route>
         </Switch>
       </div>

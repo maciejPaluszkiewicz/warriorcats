@@ -1,11 +1,17 @@
 import React from 'react';
 
-function WarriorTile() {
+function WarriorTile({ warrior }) {
     return (
         <div className='tile'>
-            <h2 className='name'>CaTNAME</h2>
-            <img className='face' alt='catface' />
-            <div className='skill'>SUPERPAWS</div>
+            <h2 className='name'>{warrior.name}</h2>
+            <img className='face' alt='catface' src={warrior.image} />
+            <div className='buttons'>
+                <button className='details'>Details</button>
+                {warrior.hired ?
+                    <button className='removeFromGang'>Dismiss</button> :
+                    <button className='addToGang'>Hire</button>
+                }
+            </div>
         </div>
     );
 }

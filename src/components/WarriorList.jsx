@@ -1,12 +1,13 @@
 import React from 'react';
 import WarriorTile from './WarriorTile';
 
-function WarriorList() {
+function WarriorList({ warriors }) {
     return (
         <div className="container">
             <h3>list of cats</h3>
-            <WarriorTile />
-
+            {warriors.map((warrior, key) =>
+                <WarriorTile key={key} warrior={warrior} />
+            )}
 
         </div>
     );
