@@ -1,5 +1,6 @@
 import React from 'react';
-import withStyles, { WithStylesProps } from 'react-jss';
+import withStyles from 'react-jss';
+import HireDismissButton from './HireDismissButton';
 
 const styles = {
     name: {
@@ -24,7 +25,6 @@ const styles = {
 
     }
 
-
 }
 
 function WarriorTile({ warrior, classes }) {
@@ -34,10 +34,7 @@ function WarriorTile({ warrior, classes }) {
             <img className={classes.face} alt='catface' src={warrior.image} />
             <div className={classes.buttons}>
                 <button className={classes.details}>Details</button>
-                {warrior.hired ?
-                    <button className={classes.removeFromGang}>Dismiss</button> :
-                    <button className={classes.addToGang}>Hire</button>
-                }
+                <HireDismissButton warrior={warrior} />
             </div>
         </div>
     );
