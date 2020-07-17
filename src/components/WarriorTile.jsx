@@ -1,19 +1,46 @@
 import React from 'react';
+import withStyles, { WithStylesProps } from 'react-jss';
 
-function WarriorTile({ warrior }) {
+const styles = {
+    name: {
+
+    },
+    buttons: {
+        backgroundColor: 'yellow'
+    },
+
+    face: {
+        width: '200px',
+        height: '300px',
+        objectFit: 'contain',
+    },
+    details: {
+
+    },
+    removeFromGang: {
+
+    },
+    addToGang: {
+
+    }
+
+
+}
+
+function WarriorTile({ warrior, classes }) {
     return (
-        <div className='tile'>
-            <h2 className='name'>{warrior.name}</h2>
-            <img className='face' alt='catface' src={warrior.image} />
-            <div className='buttons'>
-                <button className='details'>Details</button>
+        <div className={classes.tile}>
+            <h2 className={classes.name}>{warrior.name}</h2>
+            <img className={classes.face} alt='catface' src={warrior.image} />
+            <div className={classes.buttons}>
+                <button className={classes.details}>Details</button>
                 {warrior.hired ?
-                    <button className='removeFromGang'>Dismiss</button> :
-                    <button className='addToGang'>Hire</button>
+                    <button className={classes.removeFromGang}>Dismiss</button> :
+                    <button className={classes.addToGang}>Hire</button>
                 }
             </div>
         </div>
     );
 }
 
-export default WarriorTile;
+export default withStyles(styles)(WarriorTile);

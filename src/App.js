@@ -8,12 +8,11 @@ import {
 import WarriorCreator from "./components/WarriorCreator";
 import MyGang from './components/MyGang';
 import WarriorList from './components/WarriorList';
-import './App.css';
 
 
 function App() {
 
-  const URL = 'https://run.mocky.io/v3/3e3b982a-f223-4ec1-92ba-c6475e8a8ae8';
+  const URL = 'https://run.mocky.io/v3/f27f02e9-14c7-4d4d-a08a-9d37d008ba42';
 
   const [warriorList, setWarriorList] = useState([]);
   const [loading, setLoading] = useState(true);
