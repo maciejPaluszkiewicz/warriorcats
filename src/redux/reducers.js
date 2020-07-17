@@ -17,7 +17,7 @@ export default function RootReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                warriors: action.payload
+                warriors: action.warriors
             }
         case FETCH_WARRIORS_ERROR:
             return {

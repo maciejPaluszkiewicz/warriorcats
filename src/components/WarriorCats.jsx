@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -13,10 +13,12 @@ import { bindActionCreators } from 'redux';
 import { getWarriorsPending, getWarriors, getWarriorsError } from '../redux/reducers';
 import fetchWarriorsAction from '../redux/fetch';
 import { connect } from 'react-redux';
+import Spinner from './Spinner';
+import Error from './Error';
 
 function WarriorCats({ warriors, pending, error, fetchWarriors }) {
 
-
+    useEffect(fetchWarriors, []);
 
     return (
         <Router>
@@ -37,20 +39,23 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
 
                 {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-                <Switch>
-                    <Route exact path="/warrior/:id">
-                        <WarriorDetails />
-                    </Route>
-                    <Route path="/create">
-                        <WarriorCreator />
-                    </Route>
-                    <Route path="/gang">
-                        <MyGang />
-                    </Route>
-                    <Route path="/">
-                        <WarriorList warriors={warriors} />
-                    </Route>
-                </Switch>
+
+                {pending ? <Spinner /> : error ? <Error /> :
+                    <Switch>
+                        <Route exact path="/warrior/:id">
+                            <WarriorDetails />
+                        </Route>
+                        <Route path="/create">
+                            <WarriorCreator />
+                        </Route>
+                        <Route path="/gang">
+                            <MyGang />
+                        </Route>
+                        <Route path="/">
+                            <WarriorList warriors={warriors} />
+                        </Route>
+                    </Switch>
+                }
             </div>
         </Router>
     );
