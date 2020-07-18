@@ -3,7 +3,7 @@ const cat = ['Fluffy', 'Mephisto', 'Rumjack', 'Greebo', 'Crookshanks', 'Shadowfa
 const skill = ['Skinny', 'Black', 'White', 'Purr', 'Fluffy', 'Sharp', 'Grumpy', 'Rattle', 'Ultimate', 'Fuzzy', 'Sneaky']
 const weapon = ['stripe', 'paws', 'fang', 'claw', 'tail', 'purr', 'smell', 'cuddles', 'bite']
 
-const shuffle = (array) => Math.floor(Math.random() * array.length);
+const shuffle = (array) => array[Math.floor(Math.random() * array.length)];
 
 export const createRandomName = () => `${shuffle(cat)} ${shuffle(skill)}${shuffle(weapon)}`;
 

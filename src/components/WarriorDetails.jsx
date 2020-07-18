@@ -57,7 +57,8 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
             <h2 className={classes.name}>{warrior.name}</h2>
             <div className={classes.details}>
                 <img className={classes.face} alt='catface' src={warrior.image} />
-                <p className={classes.description}></p>
+                <h3 className={classes.skill}>{warrior.skill}</h3>
+                <p className={classes.description}>{warrior.description}</p>
             </div>
             <div className={classes.buttons}>
                 <HireDismissButton warrior={warrior} />

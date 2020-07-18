@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from "react";
+
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import { createWarrior } from '../redux/actions';
+import { createRandomName, createRandomSkill } from '../utilities';
 
-// NAME; input/generate
-// DEtails: skill (input/generate), description, image
-// buttons: create / cancel
-// checkID/generateID
+// TODO:
+// Name; input/generate
+// Details: skill (input/generate), description, image
+// Buttons: create / cancel
+// CheckID/generateID
 
 const styles = {
     name: {
@@ -33,20 +36,64 @@ const styles = {
 
 
 function WarriorCreator({ createWarrior }) {
+    const [name, setName] = useState('');
+    const [skill, setSkill] = useState('');
+    const [description, setDescription] = useState('');
+    const [image, setImage] = useState('');
 
-    const Testocat = {
-        "id": "001337",
-        "name": "Test Cat",
-        "skill": "Sneak of Darkness",
-        "description": "Mouser lynx siberian puma. Tomcat abyssinian for kitty and munchkin. Kitten leopard but cornish rex.",
-        "image": "https://images.unsplash.com/photo-1564492008791-1f2582d3c60a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=400"
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const warrior = { id: 'generateId()', name, skill, description, image }
+        createWarrior(warrior);
+        //TODO alert sucess,
+        // back to list
     }
 
     return (
         <div className="container">
             <h1>WARRIOR CREATOR</h1>
 
-            <button onClick={() => createWarrior(Testocat)}>ADD CAT</button>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                <input
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
+                    <button type="button" onClick={() => setName(createRandomName())}>Generate Random</button>
+                </label>
+
+                <label>
+                    Skill:
+                <input
+                        type="text"
+                        value={skill}
+                        onChange={e => setSkill(e.target.value)}
+                    />
+                    <button type="button" onClick={() => setSkill(createRandomSkill())} > Generate Random </button>
+                </label>
+
+                <label>
+                    Description:
+                <input
+                        type="text"
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                    />
+                </label>
+
+                <label>
+                    Image URL:
+                <input
+                        type="text"
+                        value={image}
+                        onChange={e => setImage(e.target.value)}
+                    />
+                </label>
+
+                <input type="submit" value="Create" />
+            </form>
         </div>
     );
 }
