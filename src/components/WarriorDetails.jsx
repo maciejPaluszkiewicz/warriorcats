@@ -1,9 +1,10 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import HireDismissButton from './HireDismissButton';
-import { getWarriors } from '../redux/reducers'
+import { getWarriors } from '../redux/reducers';
 import { connect } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom';
+import { retireWarrior } from '../redux/actions';
 
 const styles = {
     name: {
@@ -37,13 +38,18 @@ const styles = {
     }
 }
 
-function WarriorDetails({ classes, warriors }) {
+function WarriorDetails({ classes, warriors, retireWarrior }) {
 
     let { id } = useParams();
     const warrior = warriors.filter(warrior => warrior.id === id)[0];
 
     const history = useHistory();
     const goToWarriorsList = () => { history.push(`/`) };
+
+    const retireAndRedirect = () => {
+        retireWarrior(warrior);
+        goToWarriorsList();
+    };
 
     return (
         <div className={classes.container}>
@@ -55,7 +61,7 @@ function WarriorDetails({ classes, warriors }) {
             </div>
             <div className={classes.buttons}>
                 <HireDismissButton warrior={warrior} />
-                <button className={classes.retire}>Retire</button>
+                <button className={classes.retire} onClick={retireAndRedirect}>Retire</button>
             </div>
         </div>
     );
@@ -66,7 +72,13 @@ const mapStateToProps = (state) => ({
     warriors: getWarriors(state),
 })
 
+const mapDispatchToProps = dispatch => {
+    return {
+        retireWarrior: (warrior) => dispatch(retireWarrior(warrior)),
+    }
+}
+
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(withStyles(styles)(WarriorDetails));
