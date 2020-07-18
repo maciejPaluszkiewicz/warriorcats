@@ -4,6 +4,7 @@ export const FETCH_WARRIORS_ERROR = 'FETCH_WARRIORS_ERROR';
 export const HIRE_WARRIOR = 'HIRE_WARRIOR';
 export const DISMISS_WARRIOR = 'DISMISS_WARRIOR';
 export const RETIRE_WARRIOR = 'RETIRE_WARRIOR';
+export const CREATE_WARRIOR = 'CREATE_WARRIOR';
 
 export function fetchWarriorsPending() {
     return {
@@ -42,6 +43,12 @@ export function dismissWarrior(warrior) {
 export function retireWarrior(warrior) {
     return {
         type: RETIRE_WARRIOR,
+        warrior: warrior
+    }
+}
+export function createWarrior(warrior) {
+    return {
+        type: CREATE_WARRIOR,
         warrior: warrior
     }
 }

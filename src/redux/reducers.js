@@ -1,4 +1,7 @@
-import { FETCH_WARRIORS_PENDING, FETCH_WARRIORS_SUCCESS, FETCH_WARRIORS_ERROR, HIRE_WARRIOR, DISMISS_WARRIOR, RETIRE_WARRIOR } from './actions';
+import {
+    FETCH_WARRIORS_PENDING, FETCH_WARRIORS_SUCCESS, FETCH_WARRIORS_ERROR,
+    HIRE_WARRIOR, DISMISS_WARRIOR, RETIRE_WARRIOR, CREATE_WARRIOR
+} from './actions';
 
 export const initialState = {
     pending: false,
@@ -52,6 +55,12 @@ export default function RootReducer(state = initialState, action) {
             return {
                 ...state,
                 warriors: remainingWarriors
+            }
+        case CREATE_WARRIOR:
+            const expandedWarriors = [...state.warriors, action.warrior];
+            return {
+                ...state,
+                warriors: expandedWarriors
             }
         default:
             return state;
