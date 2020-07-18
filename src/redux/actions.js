@@ -1,7 +1,8 @@
-
 export const FETCH_WARRIORS_PENDING = 'FETCH_WARRIORS_PENDING';
 export const FETCH_WARRIORS_SUCCESS = 'FETCH_WARRIORS_SUCCESS';
 export const FETCH_WARRIORS_ERROR = 'FETCH_WARRIORS_ERROR';
+export const HIRE_WARRIOR = 'HIRE_WARRIOR';
+export const DISMISS_WARRIOR = 'DISMISS_WARRIOR';
 
 export function fetchWarriorsPending() {
     return {
@@ -20,5 +21,19 @@ export function fetchWarriorsError(error) {
     return {
         type: FETCH_WARRIORS_ERROR,
         error: error
+    }
+}
+
+export function hireWarrior(warrior) {
+    return {
+        type: HIRE_WARRIOR,
+        warrior: warrior
+    }
+}
+
+export function dismissWarrior(warrior) {
+    return {
+        type: DISMISS_WARRIOR,
+        warrior: warrior
     }
 }

@@ -6,7 +6,6 @@ import {
     Link
 } from "react-router-dom";
 import WarriorCreator from "./WarriorCreator";
-import MyGang from './MyGang';
 import WarriorList from './WarriorList';
 import WarriorDetails from './WarriorDetails';
 import { bindActionCreators } from 'redux';
@@ -36,10 +35,6 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                         </li>
                     </ul>
                 </nav>
-
-                {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-
                 {pending ? <Spinner /> : error ? <Error /> :
                     <Switch>
                         <Route exact path="/warrior/:id">
@@ -49,10 +44,10 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                             <WarriorCreator />
                         </Route>
                         <Route path="/gang">
-                            <MyGang />
+                            <WarriorList warriors={warriors.filter(x => x.hired)} title="My Gang" />
                         </Route>
                         <Route path="/">
-                            <WarriorList warriors={warriors} />
+                            <WarriorList warriors={warriors} title="List of Cats" />
                         </Route>
                     </Switch>
                 }

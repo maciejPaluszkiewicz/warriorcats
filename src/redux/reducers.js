@@ -1,4 +1,4 @@
-import { FETCH_WARRIORS_PENDING, FETCH_WARRIORS_SUCCESS, FETCH_WARRIORS_ERROR } from './actions';
+import { FETCH_WARRIORS_PENDING, FETCH_WARRIORS_SUCCESS, FETCH_WARRIORS_ERROR, HIRE_WARRIOR, DISMISS_WARRIOR } from './actions';
 
 export const initialState = {
     pending: false,
@@ -25,6 +25,28 @@ export default function RootReducer(state = initialState, action) {
                 pending: false,
                 error: action.error
             }
+        case HIRE_WARRIOR:
+            const increasedWarriors = state.warriors.map(warrior => {
+                if (warrior.id === action.warrior.id) {
+                    warrior.hired = true;
+                }
+                return { ...warrior };
+            });
+            return {
+                ...state,
+                warriors: increasedWarriors
+            }
+        case DISMISS_WARRIOR:
+            const decreasedWarriors = state.warriors.map(warrior => {
+                if (warrior.id === action.warrior.id) {
+                    warrior.hired = false;
+                }
+                return { ...warrior };
+            });
+            return {
+                ...state,
+                warriors: decreasedWarriors
+            }
         default:
             return state;
     }
@@ -33,3 +55,4 @@ export default function RootReducer(state = initialState, action) {
 export const getWarriors = state => state.warriors;
 export const getWarriorsPending = state => state.pending;
 export const getWarriorsError = state => state.error;
+export const getWarriorByID = (state, id) => state.warriors.filter(warrior => warrior.id === id)[0];
