@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
 } from 'react-router-dom';
 import WarriorCreator from './WarriorCreator';
 import WarriorList from './WarriorList';
@@ -22,7 +22,40 @@ const styles = {
 
     },
     strengthInNumbers: {
+        boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
+        backgroundColor: '#dac400',
+        color: '#1a1a1a',
+        minHeight: '20px',
+        minWidth: '20px',
+        fontWeight: '700',
+        padding: '5px 10px',
+        borderRadius: '15%',
+        marginLeft: '10px'
+    },
+    navigation: {
+        position: 'fixed',
+        top: '0',
+        width: '100%',
+        maxWidth: '1200px',
+        backgroundColor: '#5b5b5b',
+        boxShadow: '0px 2px 2px 0px rgba(0,0,0,0.75)',
 
+
+    },
+    navlist: {
+        display: 'flex',
+        listStyleType: 'none'
+    },
+    navListElement: {
+        color: '#ffffff',
+        margin: '5px 15px',
+        '&:visited': { color: '#ffffff' }
+    },
+    link: {
+        color: '#ffffff',
+        textDecoration: 'none',
+        fontSize: '1.2rem',
+        fontWeight: '700',
     }
 }
 
@@ -31,18 +64,18 @@ function WarriorCats({ warriors, pending, error, fetchWarriors, classes }) {
     useEffect(fetchWarriors, []);
 
     return (
-        <Router>
+        <Router basement='/'>
             <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to='/'>Home</Link>
+                <nav className={classes.navigation}>
+                    <ul className={classes.navlist}>
+                        <li className={classes.navListElement}>
+                            <Link className={classes.link} to='/'>Home</Link>
                         </li>
-                        <li>
-                            <Link to='/create'>Create New Warrior</Link>
+                        <li className={classes.navListElement}>
+                            <Link className={classes.link} to='/create'>Create New Warrior</Link>
                         </li>
-                        <li>
-                            <Link to='/gang'>My Gang <span className={classes.strengthInNumbers}>{warriors.filter(x => x.hired).length}</span></Link>
+                        <li className={classes.navListElement}>
+                            <Link className={classes.link} to='/gang'>My Gang <span className={classes.strengthInNumbers}>{warriors.filter(x => x.hired).length}</span></Link>
                         </li>
                     </ul>
                 </nav>
@@ -58,7 +91,7 @@ function WarriorCats({ warriors, pending, error, fetchWarriors, classes }) {
                             <WarriorList showBackButton warriors={warriors.filter(x => x.hired)} title='My Gang' />
                         </Route>
                         <Route exact path='/'>
-                            <WarriorList warriors={warriors} title='List of Cats' />
+                            <WarriorList warriors={warriors} />
                         </Route>
                         <Route>
                             <FourOhFour />

@@ -74,7 +74,7 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
             </div>
             <div className={classes.buttons}>
                 <HireDismissButton warrior={warrior} />
-                <button className={classes.retire} onClick={retireAndRedirect}>Retire</button>
+                <button className={classes.retire} onClick={retireAndRedirect}>Retire <i class="fas fa-bed"></i></button>
             </div>
         </div>
     );

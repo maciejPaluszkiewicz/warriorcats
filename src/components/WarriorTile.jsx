@@ -5,12 +5,26 @@ import { useHistory } from 'react-router-dom'
 
 
 const styles = {
+    tile: {
+        border: '1px solid #1a1a1a',
+        borderRadius: '5px',
+        backgroundColor: '#cacaca',
+        boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
+    },
     name: {
-
+        overflow: 'hidden',
+        width: '200px',
+        height: '60px',
+        color: '#1a1a1a',
+        paddingLeft: '8px',
     },
 
     buttons: {
-        backgroundColor: 'yellow'
+        // backgroundColor: '#dac400',
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: '10px',
+
     },
 
     face: {
@@ -19,13 +33,20 @@ const styles = {
         objectFit: 'contain',
     },
     details: {
-
+        color: '#1a1a1a',
+        border: '1px solid #1a1a1a',
+        borderRadius: '5px',
+        padding: '5px 5px',
+        fontSize: '1.1rem',
+        backgroundColor: '#eaeaea',
+        cursor: 'pointer',
+        width: '49%',
+        fontWeight: '700',
+        boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
     },
-    removeFromGang: {
-
-    },
-    addToGang: {
-
+    hireDismissBox: {
+        width: '49%',
+        boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
     }
 
 }
@@ -40,8 +61,8 @@ function WarriorTile({ warrior, classes }) {
             <h2 className={classes.name}>{warrior.name}</h2>
             <img className={classes.face} alt='catface' src={warrior.image} />
             <div className={classes.buttons}>
-                <button className={classes.details} onClick={goToDetails}>Details</button>
-                <HireDismissButton warrior={warrior} />
+                <button className={classes.details} onClick={goToDetails}>Details <i className="fas fa-search"></i></button>
+                <div className={classes.hireDismissBox}><HireDismissButton warrior={warrior} /></div>
             </div>
         </div>
     );

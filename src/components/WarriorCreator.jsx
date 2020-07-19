@@ -102,8 +102,8 @@ function WarriorCreator({ createWarrior, nextFreeId }) {
                     />
                 </label>
 
-                <input type='submit' value='Create' />
-                <input type='button' value='Cancel' className={classes.cancel} onClick={goToWarriorsList} />
+                <button type='submit'>Create <i className="fas fa-paw"></i></button >
+                <button type='button' className={classes.cancel} onClick={goToWarriorsList} >Cancel <i className="fas fa-times"></i> </button>
             </form>
         </div>
     );

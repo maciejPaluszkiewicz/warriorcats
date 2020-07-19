@@ -5,10 +5,26 @@ import { connect } from 'react-redux';
 
 const styles = {
     removeFromGang: {
-        color: 'green'
+        color: '#ae2029',
+        border: '1px solid #1a1a1a',
+        borderRadius: '5px',
+        padding: '5px 5px',
+        fontSize: '1.1rem',
+        backgroundColor: '#eaeaea',
+        cursor: 'pointer',
+        width: '100%',
+        fontWeight: '700'
     },
     addToGang: {
-        color: 'red'
+        color: '#008000',
+        border: '1px solid #1a1a1a',
+        borderRadius: '5px',
+        padding: '5px 5px',
+        fontSize: '1.1rem',
+        backgroundColor: '#eaeaea',
+        cursor: 'pointer',
+        width: '100%',
+        fontWeight: '700'
     }
 
 }
@@ -18,8 +34,8 @@ function HireDismissButton({ warrior, classes, hireWarrior, dismissWarrior }) {
         <>
             {
                 warrior.hired ?
-                    <button className={classes.removeFromGang} onClick={() => dismissWarrior(warrior)}>Dismiss</button> :
-                    <button className={classes.addToGang} onClick={() => hireWarrior(warrior)} >Hire</button>
+                    <button className={classes.removeFromGang} onClick={() => dismissWarrior(warrior)}>Dismiss <i className="fas fa-times"></i></button> :
+                    <button className={classes.addToGang} onClick={() => hireWarrior(warrior)} >Hire <i className="fas fa-paw"></i></button>
             }
         </>
     );

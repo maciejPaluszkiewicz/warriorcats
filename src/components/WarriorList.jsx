@@ -4,24 +4,37 @@ import WarriorTile from './WarriorTile';
 import BackToPreviousPageButton from './BackToPreviousPageButton';
 
 const styles = {
-    constainer: {
-
+    warriorListBox: {
+        marginTop: '50px',
+        paddingTop: '10px',
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
     },
     title: {
-
+        fontSize: '1.5rem',
+        fontWeight: '700',
+    },
+    tile: {
+        margin: '15px',
     }
 }
 
 function WarriorList({ classes, warriors, title, showBackButton }) {
 
     return (
-        <div className={classes.container}>
+        <div className={classes.warriorListBox}>
             {showBackButton ? <BackToPreviousPageButton /> : ''}
-            <h3 className={classes.title}>{title}</h3>
-            {warriors.map((warrior, key) =>
-                <WarriorTile key={key} warrior={warrior} />
-            )}
-
+            {title ? <h3 className={classes.title}>{title}</h3> : ''}
+            <div className={classes.container}>
+                {warriors.map((warrior, key) =>
+                    <div className={classes.tile}>
+                        <WarriorTile key={key} warrior={warrior} />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
