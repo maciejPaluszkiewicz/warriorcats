@@ -4,17 +4,17 @@ import withStyles from 'react-jss';
 
 const styles = {
     spinner: {
-        color: 'green'
+        marginTop: '100px',
+        textAlign: 'center',
     },
 }
-
 
 function Spinner({ classes }) {
     return (
         <div className={classes.spinner}>
             <ClipLoader
-                size={150}
-                color={"#123abc"}
+                size={200}
+                color={"#dac400"}
             />
         </div>
     );

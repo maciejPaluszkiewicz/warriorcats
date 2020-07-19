@@ -18,9 +18,6 @@ import FourOhFour from './FourOhFour';
 import withStyles from 'react-jss';
 
 const styles = {
-    constainer: {
-
-    },
     strengthInNumbers: {
         boxShadow: '2px 2px 5px 0px rgba(0,0,0,0.75)',
         backgroundColor: '#dac400',
@@ -34,17 +31,21 @@ const styles = {
     },
     navigation: {
         position: 'fixed',
+        boxSizing: 'border-box',
         top: '0',
         width: '100%',
         maxWidth: '1200px',
         backgroundColor: '#5b5b5b',
         boxShadow: '0px 2px 2px 0px rgba(0,0,0,0.75)',
-
+        backgroundImage: 'url(/catwalk.png)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '95% 0',
 
     },
     navlist: {
         display: 'flex',
-        listStyleType: 'none'
+        listStyleType: 'none',
+
     },
     navListElement: {
         color: '#ffffff',
@@ -102,7 +103,6 @@ function WarriorCats({ warriors, pending, error, fetchWarriors, classes }) {
         </Router>
     );
 }
-
 
 const mapStateToProps = state => ({
     error: getWarriorsError(state),

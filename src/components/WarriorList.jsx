@@ -14,11 +14,17 @@ const styles = {
         justifyContent: 'flex-start',
     },
     title: {
-        fontSize: '1.5rem',
-        fontWeight: '700',
+        fontSize: '2rem',
+        fontWeight: '900',
+        marginTop: '30px',
+        marginLeft: '15px',
+        color: '#1a1a1a',
     },
     tile: {
         margin: '15px',
+    },
+    prevButton: {
+        marginTop: '30px'
     }
 }
 
@@ -26,7 +32,7 @@ function WarriorList({ classes, warriors, title, showBackButton }) {
 
     return (
         <div className={classes.warriorListBox}>
-            {showBackButton ? <BackToPreviousPageButton /> : ''}
+            {showBackButton ? <div className={classes.prevButton}><BackToPreviousPageButton /></div> : ''}
             {title ? <h3 className={classes.title}>{title}</h3> : ''}
             <div className={classes.container}>
                 {warriors.map((warrior, key) =>

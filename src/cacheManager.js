@@ -1,7 +1,3 @@
-
-
-
-
 export const setCache = (warriors, initial = false) => {
     localStorage.setItem('catwarriors', JSON.stringify(warriors));
     if (initial) localStorage.setItem('catwarriorsDate', (new Date()).toUTCString());
@@ -17,7 +13,6 @@ export const getCache = () => {
     }
     return JSON.parse(localStorage.getItem('catwarriors'));
 }
-
 
 //From Stackoverflow by Ed Poor
 function daysBetween(first, second) {

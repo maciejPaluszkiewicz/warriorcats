@@ -5,7 +5,6 @@ import {
 import { initialState } from './store';
 import { setCache } from '../cacheManager';
 
-
 export default function RootReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_WARRIORS_PENDING:

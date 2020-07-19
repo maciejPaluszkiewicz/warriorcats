@@ -8,37 +8,46 @@ import { retireWarrior } from '../redux/actions';
 import BackToPreviousPageButton from './BackToPreviousPageButton';
 
 const styles = {
-    backToList: {
-        background: 'pink'
+    container: {
+        marginTop: '50px',
+        paddingTop: '30px',
     },
     name: {
-
+        marginLeft: '15px',
+        fontWeight: '900',
+        fontSize: '2rem',
     },
     details: {
-
+        display: 'flex',
+    },
+    warriorData: {
+        display: 'flex',
+        flexDirection: 'column',
     },
     skill: {
-
+        fontWeight: '700',
+        fontSize: '1.5rem',
     },
     face: {
-        width: '200px',
-        height: '300px',
+        width: '400px',
+        height: '600px',
         objectFit: 'contain',
+        margin: '0 15px 15px 15px'
     },
-    desription: {
-
-    },
-    buttons: {
-        backgroundColor: 'yellow'
-    },
-    removeFromGang: {
-
-    },
-    addToGang: {
-
+    description: {
+        fontSize: '1.2rem',
     },
     retire: {
-
+        marginTop: '10px',
+        color: '#1a1a1a',
+        border: '1px solid #1a1a1a',
+        borderRadius: '5px',
+        padding: '5px 5px',
+        fontSize: '1.1rem',
+        backgroundColor: '#eaeaea',
+        cursor: 'pointer',
+        width: '100%',
+        fontWeight: '700'
     }
 }
 
@@ -46,6 +55,8 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
 
     let { id } = useParams();
     const warrior = warriors.filter(warrior => warrior.id === id)[0];
+
+    const dummyCat = '/dummyCat400x600.jpg'
 
     const history = useHistory();
     const goToWarriorsList = () => { history.push(`/`) };
@@ -68,14 +79,17 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
             <BackToPreviousPageButton />
             <h2 className={classes.name}>{warrior.name}</h2>
             <div className={classes.details}>
-                <img className={classes.face} alt='catface' src={warrior.image} />
-                <h3 className={classes.skill}>{warrior.skill}</h3>
-                <p className={classes.description}>{warrior.description}</p>
+                <img className={classes.face} alt='catface' src={warrior.image ? warrior.image : dummyCat} />
+                <div className={classes.warriorData}>
+                    <h3 className={classes.skill}>{warrior.skill}</h3>
+                    <p className={classes.description}>{warrior.description}</p>
+                    <div className={classes.buttons}>
+                        <HireDismissButton warrior={warrior} />
+                        <button className={classes.retire} onClick={retireAndRedirect}>Retire <i class="fas fa-bed"></i></button>
+                    </div>
+                </div>
             </div>
-            <div className={classes.buttons}>
-                <HireDismissButton warrior={warrior} />
-                <button className={classes.retire} onClick={retireAndRedirect}>Retire <i class="fas fa-bed"></i></button>
-            </div>
+
         </div>
     );
 }

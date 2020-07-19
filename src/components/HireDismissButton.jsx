@@ -26,7 +26,6 @@ const styles = {
         width: '100%',
         fontWeight: '700'
     }
-
 }
 
 function HireDismissButton({ warrior, classes, hireWarrior, dismissWarrior }) {
