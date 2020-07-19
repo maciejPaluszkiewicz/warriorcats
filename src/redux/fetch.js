@@ -1,6 +1,6 @@
 import { fetchWarriorsPending, fetchWarriorsSuccess, fetchWarriorsError } from './actions';
 
-const URL = 'https://run.mocky.io/v3/f27f02e9-14c7-4d4d-a08a-9d37d008ba42';
+const URL = 'https://run.mocky.io/v3/79dd242a-ebca-4998-bd55-e1d8a180b3ba';
 
 function fetchWarriors() {
     return dispatch => {

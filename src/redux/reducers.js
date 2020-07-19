@@ -2,12 +2,8 @@ import {
     FETCH_WARRIORS_PENDING, FETCH_WARRIORS_SUCCESS, FETCH_WARRIORS_ERROR,
     HIRE_WARRIOR, DISMISS_WARRIOR, RETIRE_WARRIOR, CREATE_WARRIOR
 } from './actions';
+import { initialState } from './store';
 
-export const initialState = {
-    pending: false,
-    warriors: [],
-    error: null
-}
 
 export default function RootReducer(state = initialState, action) {
     switch (action.type) {
@@ -66,8 +62,3 @@ export default function RootReducer(state = initialState, action) {
             return state;
     }
 }
-
-export const getWarriors = state => state.warriors;
-export const getWarriorsPending = state => state.pending;
-export const getWarriorsError = state => state.error;
-export const getWarriorByID = (state, id) => state.warriors.filter(warrior => warrior.id === id)[0];

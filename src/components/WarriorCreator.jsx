@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import { createWarrior } from '../redux/actions';
+import { getNextFreeID } from '../redux/selectors';
 import { createRandomName, createRandomSkill } from '../utilities';
 import BackToListButton from './BackToListButton';
 import { useHistory } from 'react-router-dom';
@@ -38,7 +39,7 @@ const styles = {
 }
 
 
-function WarriorCreator({ createWarrior }) {
+function WarriorCreator({ createWarrior, nextFreeId }) {
     const [name, setName] = useState('');
     const [skill, setSkill] = useState('');
     const [description, setDescription] = useState('');
@@ -49,7 +50,8 @@ function WarriorCreator({ createWarrior }) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        const warrior = { id: 'generateId()', name, skill, description, image }
+        console.log(nextFreeId)
+        const warrior = { id: nextFreeId, name, skill, description, image }
         createWarrior(warrior);
         //TODO alert sucess,
         goToWarriorsList();
@@ -113,7 +115,12 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+const mapStateToProps = (state) => ({
+    nextFreeId: getNextFreeID(state),
+})
+
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(withStyles(styles)(WarriorCreator));

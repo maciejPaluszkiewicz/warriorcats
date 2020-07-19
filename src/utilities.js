@@ -8,6 +8,6 @@ const shuffle = (array) => array[Math.floor(Math.random() * array.length)];
 export const createRandomName = () => `${shuffle(cat)} ${shuffle(skill)}${shuffle(weapon)}`;
 
 const skillName = ['Smell', 'Purr', 'Meow', 'Leap', 'Bite', 'Scratch', 'Snore', 'Sleep', 'Furball', 'Sneak']
-const skillDescription = ['Doom', 'Destruction', 'Vegance', 'Destiny', 'Freedom', 'Glory', 'Purrification', 'Tail', 'Stripes']
+const skillDescription = ['Doom', 'Destruction', 'Vegance', 'Destiny', 'Freedom', 'Glory', 'Purrification', 'Tail', 'Stripes', 'Revenge', 'Sayonara']
 
 export const createRandomSkill = () => `${shuffle(skillName)} of ${shuffle(skillDescription)}`;

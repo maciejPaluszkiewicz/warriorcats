@@ -9,16 +9,24 @@ import WarriorCreator from './WarriorCreator';
 import WarriorList from './WarriorList';
 import WarriorDetails from './WarriorDetails';
 import { bindActionCreators } from 'redux';
-import { getWarriorsPending, getWarriors, getWarriorsError } from '../redux/reducers';
+import { getWarriorsPending, getWarriors, getWarriorsError } from '../redux/selectors';
 import fetchWarriorsAction from '../redux/fetch';
 import { connect } from 'react-redux';
 import Spinner from './Spinner';
 import Error from './Error';
 import FourOhFour from './FourOhFour';
+import withStyles from 'react-jss';
 
+const styles = {
+    constainer: {
 
+    },
+    strengthInNumbers: {
 
-function WarriorCats({ warriors, pending, error, fetchWarriors }) {
+    }
+}
+
+function WarriorCats({ warriors, pending, error, fetchWarriors, classes }) {
 
     useEffect(fetchWarriors, []);
 
@@ -34,7 +42,7 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                             <Link to='/create'>Create New Warrior</Link>
                         </li>
                         <li>
-                            <Link to='/gang'>My Gang</Link>
+                            <Link to='/gang'>My Gang <span className={classes.strengthInNumbers}>{warriors.filter(x => x.hired).length}</span></Link>
                         </li>
                     </ul>
                 </nav>
@@ -76,4 +84,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WarriorCats);
+)(withStyles(styles)(WarriorCats));

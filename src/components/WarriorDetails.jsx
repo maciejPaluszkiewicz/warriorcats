@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import HireDismissButton from './HireDismissButton';
-import { getWarriors } from '../redux/reducers';
+import { getWarriors } from '../redux/selectors';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { retireWarrior } from '../redux/actions';

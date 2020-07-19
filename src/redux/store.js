@@ -1,9 +1,12 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer, { initialState } from './reducers';
+import rootReducer from './reducers';
 
-// import initialState from './initialState';
-// const initialState = {};
+export const initialState = {
+    pending: false,
+    warriors: [],
+    error: null
+}
 
 const middlewares = [thunk];
 
