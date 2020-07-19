@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/warriorcats/static/css/main.bbf6495a.chunk.css",
-    "main.js": "/warriorcats/static/js/main.0ac513b9.chunk.js",
-    "main.js.map": "/warriorcats/static/js/main.0ac513b9.chunk.js.map",
+    "main.js": "/warriorcats/static/js/main.f42623cd.chunk.js",
+    "main.js.map": "/warriorcats/static/js/main.f42623cd.chunk.js.map",
     "runtime-main.js": "/warriorcats/static/js/runtime-main.b3d1f7f7.js",
     "runtime-main.js.map": "/warriorcats/static/js/runtime-main.b3d1f7f7.js.map",
     "static/js/2.08e777a9.chunk.js": "/warriorcats/static/js/2.08e777a9.chunk.js",
     "static/js/2.08e777a9.chunk.js.map": "/warriorcats/static/js/2.08e777a9.chunk.js.map",
     "index.html": "/warriorcats/index.html",
-    "precache-manifest.c28d454b2b0a0b450ebf4b3ec4e3bce3.js": "/warriorcats/precache-manifest.c28d454b2b0a0b450ebf4b3ec4e3bce3.js",
+    "precache-manifest.a11254bbc93fe1b2f265e061af5dfe5b.js": "/warriorcats/precache-manifest.a11254bbc93fe1b2f265e061af5dfe5b.js",
     "service-worker.js": "/warriorcats/service-worker.js",
     "static/css/main.bbf6495a.chunk.css.map": "/warriorcats/static/css/main.bbf6495a.chunk.css.map",
     "static/js/2.08e777a9.chunk.js.LICENSE.txt": "/warriorcats/static/js/2.08e777a9.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b3d1f7f7.js",
     "static/js/2.08e777a9.chunk.js",
     "static/css/main.bbf6495a.chunk.css",
-    "static/js/main.0ac513b9.chunk.js"
+    "static/js/main.f42623cd.chunk.js"
   ]
 }
