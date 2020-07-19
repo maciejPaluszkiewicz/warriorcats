@@ -14,6 +14,7 @@ import fetchWarriorsAction from '../redux/fetch';
 import { connect } from 'react-redux';
 import Spinner from './Spinner';
 import Error from './Error';
+import FourOhFour from './FourOhFour';
 
 
 
@@ -42,14 +43,17 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                         <Route exact path='/warrior/:id'>
                             <WarriorDetails />
                         </Route>
-                        <Route path='/create'>
+                        <Route exact path='/create'>
                             <WarriorCreator />
                         </Route>
-                        <Route path='/gang'>
+                        <Route exact path='/gang'>
                             <WarriorList showBackButton warriors={warriors.filter(x => x.hired)} title='My Gang' />
                         </Route>
-                        <Route path='/'>
+                        <Route exact path='/'>
                             <WarriorList warriors={warriors} title='List of Cats' />
+                        </Route>
+                        <Route>
+                            <FourOhFour />
                         </Route>
                     </Switch>
                 }

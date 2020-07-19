@@ -55,6 +55,11 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
         goToWarriorsList();
     };
 
+    if (warrior === undefined) {
+        history.push(`/Error404`)
+        return null;
+    }
+
     return (
         <div className={classes.container}>
             <BackToListButton />
