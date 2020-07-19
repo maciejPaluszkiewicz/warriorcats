@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/warriorcats/static/css/main.3b8a8d42.chunk.css",
+    "main.js": "/warriorcats/static/js/main.b9ae157f.chunk.js",
+    "main.js.map": "/warriorcats/static/js/main.b9ae157f.chunk.js.map",
+    "runtime-main.js": "/warriorcats/static/js/runtime-main.b3d1f7f7.js",
+    "runtime-main.js.map": "/warriorcats/static/js/runtime-main.b3d1f7f7.js.map",
+    "static/js/2.86b04854.chunk.js": "/warriorcats/static/js/2.86b04854.chunk.js",
+    "static/js/2.86b04854.chunk.js.map": "/warriorcats/static/js/2.86b04854.chunk.js.map",
+    "index.html": "/warriorcats/index.html",
+    "precache-manifest.6236ed043e6001fb1982355b34b788e0.js": "/warriorcats/precache-manifest.6236ed043e6001fb1982355b34b788e0.js",
+    "service-worker.js": "/warriorcats/service-worker.js",
+    "static/css/main.3b8a8d42.chunk.css.map": "/warriorcats/static/css/main.3b8a8d42.chunk.css.map",
+    "static/js/2.86b04854.chunk.js.LICENSE.txt": "/warriorcats/static/js/2.86b04854.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3d1f7f7.js",
+    "static/js/2.86b04854.chunk.js",
+    "static/css/main.3b8a8d42.chunk.css",
+    "static/js/main.b9ae157f.chunk.js"
+  ]
+}
