@@ -1,6 +1,6 @@
 
 const cat = ['Fluffy', 'Mephisto', 'Rumjack', 'Greebo', 'Crookshanks', 'Shadowfax', 'Garfield', 'Felix', 'Maurice', 'Sylvester', 'Azrael', 'Salem', 'Macavity'];
-const skill = ['Skinny', 'Black', 'White', 'Purr', 'Fluffy', 'Sharp', 'Grumpy', 'Rattle', 'Ultimate', 'Fuzzy', 'Sneaky']
+const skill = ['Skinny', 'Black', 'White', 'Purr', 'Fluffy', 'Sharp', 'Grumpy', 'Rattle', 'Ultimate', 'Fuzzy', 'Sneaky', 'Furrocious']
 const weapon = ['stripe', 'paws', 'fang', 'claw', 'tail', 'purr', 'smell', 'cuddles', 'bite']
 
 const shuffle = (array) => array[Math.floor(Math.random() * array.length)];

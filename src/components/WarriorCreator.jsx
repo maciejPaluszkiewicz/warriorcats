@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import { createWarrior } from '../redux/actions';
 import { createRandomName, createRandomSkill } from '../utilities';
-//
+import BackToListButton from './BackToListButton';
 import { useHistory } from 'react-router-dom';
+import { classes } from 'istanbul-lib-coverage';
 
 // TODO:
 // Name; input/generate
@@ -56,34 +57,35 @@ function WarriorCreator({ createWarrior }) {
     }
 
     return (
-        <div className="container">
+        <div className='container'>
+            <BackToListButton />
             <h1>WARRIOR CREATOR</h1>
 
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
                 <input
-                        type="text"
+                        type='text'
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
-                    <button type="button" onClick={() => setName(createRandomName())}>Generate Random</button>
+                    <button type='button' onClick={() => setName(createRandomName())}>Generate Random</button>
                 </label>
 
                 <label>
                     Skill:
                 <input
-                        type="text"
+                        type='text'
                         value={skill}
                         onChange={e => setSkill(e.target.value)}
                     />
-                    <button type="button" onClick={() => setSkill(createRandomSkill())} > Generate Random </button>
+                    <button type='button' onClick={() => setSkill(createRandomSkill())} > Generate Random </button>
                 </label>
 
                 <label>
                     Description:
                 <input
-                        type="text"
+                        type='text'
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
@@ -92,13 +94,14 @@ function WarriorCreator({ createWarrior }) {
                 <label>
                     Image URL:
                 <input
-                        type="text"
+                        type='text'
                         value={image}
                         onChange={e => setImage(e.target.value)}
                     />
                 </label>
 
-                <input type="submit" value="Create" />
+                <input type='submit' value='Create' />
+                <input type='button' value='Cancel' className={classes.cancel} onClick={goToWarriorsList} />
             </form>
         </div>
     );

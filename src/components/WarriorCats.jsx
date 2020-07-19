@@ -4,8 +4,8 @@ import {
     Switch,
     Route,
     Link
-} from "react-router-dom";
-import WarriorCreator from "./WarriorCreator";
+} from 'react-router-dom';
+import WarriorCreator from './WarriorCreator';
 import WarriorList from './WarriorList';
 import WarriorDetails from './WarriorDetails';
 import { bindActionCreators } from 'redux';
@@ -27,29 +27,29 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to='/'>Home</Link>
                         </li>
                         <li>
-                            <Link to="/create">Create New Warrior</Link>
+                            <Link to='/create'>Create New Warrior</Link>
                         </li>
                         <li>
-                            <Link to="/gang">My Gang</Link>
+                            <Link to='/gang'>My Gang</Link>
                         </li>
                     </ul>
                 </nav>
                 {pending ? <Spinner /> : error ? <Error /> :
                     <Switch>
-                        <Route exact path="/warrior/:id">
+                        <Route exact path='/warrior/:id'>
                             <WarriorDetails />
                         </Route>
-                        <Route path="/create">
+                        <Route path='/create'>
                             <WarriorCreator />
                         </Route>
-                        <Route path="/gang">
-                            <WarriorList showBackButton warriors={warriors.filter(x => x.hired)} title="My Gang" />
+                        <Route path='/gang'>
+                            <WarriorList showBackButton warriors={warriors.filter(x => x.hired)} title='My Gang' />
                         </Route>
-                        <Route path="/">
-                            <WarriorList warriors={warriors} title="List of Cats" />
+                        <Route path='/'>
+                            <WarriorList warriors={warriors} title='List of Cats' />
                         </Route>
                     </Switch>
                 }

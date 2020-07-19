@@ -5,6 +5,7 @@ import { getWarriors } from '../redux/reducers';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { retireWarrior } from '../redux/actions';
+import BackToListButton from './BackToListButton';
 
 const styles = {
     backToList: {
@@ -56,7 +57,7 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
 
     return (
         <div className={classes.container}>
-            <button className={classes.backToList} onClick={goToWarriorsList}>Back To List </button>
+            <BackToListButton />
             <h2 className={classes.name}>{warrior.name}</h2>
             <div className={classes.details}>
                 <img className={classes.face} alt='catface' src={warrior.image} />
