@@ -56,7 +56,7 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
     let { id } = useParams();
     const warrior = warriors.filter(warrior => warrior.id === id)[0];
 
-    const dummyCat = '/dummyCat400x600.jpg'
+    const dummyCat = 'dummyCat400x600.jpg';
 
     const history = useHistory();
     const goToWarriorsList = () => { history.push(`/`) };

@@ -48,7 +48,7 @@ const styles = {
 
 function WarriorTile({ warrior, classes }) {
 
-    const dummyCat = '/dummyCat400x600.jpg'
+    const dummyCat = 'dummyCat400x600.jpg'
     const history = useHistory();
     const goToDetails = () => { history.push(`/warrior/${warrior.id}`) };
 
