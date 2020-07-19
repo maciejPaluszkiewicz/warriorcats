@@ -15,6 +15,8 @@ import { connect } from 'react-redux';
 import Spinner from './Spinner';
 import Error from './Error';
 
+
+
 function WarriorCats({ warriors, pending, error, fetchWarriors }) {
 
     useEffect(fetchWarriors, []);
@@ -44,7 +46,7 @@ function WarriorCats({ warriors, pending, error, fetchWarriors }) {
                             <WarriorCreator />
                         </Route>
                         <Route path="/gang">
-                            <WarriorList warriors={warriors.filter(x => x.hired)} title="My Gang" />
+                            <WarriorList showBackButton warriors={warriors.filter(x => x.hired)} title="My Gang" />
                         </Route>
                         <Route path="/">
                             <WarriorList warriors={warriors} title="List of Cats" />

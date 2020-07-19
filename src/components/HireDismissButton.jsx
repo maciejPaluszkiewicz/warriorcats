@@ -19,7 +19,7 @@ function HireDismissButton({ warrior, classes, hireWarrior, dismissWarrior }) {
             {
                 warrior.hired ?
                     <button className={classes.removeFromGang} onClick={() => dismissWarrior(warrior)}>Dismiss</button> :
-                    <button className={classes.addToGang} onClick={() => hireWarrior(warrior)} >Hire oops</button>
+                    <button className={classes.addToGang} onClick={() => hireWarrior(warrior)} >Hire</button>
             }
         </>
     );

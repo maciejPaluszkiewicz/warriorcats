@@ -7,14 +7,17 @@ import { useParams, useHistory } from 'react-router-dom';
 import { retireWarrior } from '../redux/actions';
 
 const styles = {
+    backToList: {
+        background: 'pink'
+    },
     name: {
 
     },
     details: {
 
     },
-    backToList: {
-        background: 'pink'
+    skill: {
+
     },
     face: {
         width: '200px',

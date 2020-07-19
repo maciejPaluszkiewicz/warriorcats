@@ -4,6 +4,8 @@ import withStyles from 'react-jss';
 import { connect } from 'react-redux';
 import { createWarrior } from '../redux/actions';
 import { createRandomName, createRandomSkill } from '../utilities';
+//
+import { useHistory } from 'react-router-dom';
 
 // TODO:
 // Name; input/generate
@@ -41,12 +43,16 @@ function WarriorCreator({ createWarrior }) {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
 
+    const history = useHistory();
+    const goToWarriorsList = () => { history.push(`/`) };
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const warrior = { id: 'generateId()', name, skill, description, image }
         createWarrior(warrior);
         //TODO alert sucess,
-        // back to list
+        goToWarriorsList();
+
     }
 
     return (
