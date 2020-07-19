@@ -51,8 +51,11 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
     const goToWarriorsList = () => { history.push(`/`) };
 
     const retireAndRedirect = () => {
-        retireWarrior(warrior);
-        goToWarriorsList();
+        const r = window.confirm("Sure about retirement of this warrior?"); //Future improvement: pop-up window instead of 'confirm'
+        if (r === true) {
+            retireWarrior(warrior);
+            goToWarriorsList();
+        }
     };
 
     if (warrior === undefined) {
@@ -76,7 +79,6 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
         </div>
     );
 }
-
 
 const mapStateToProps = (state) => ({
     warriors: getWarriors(state),
