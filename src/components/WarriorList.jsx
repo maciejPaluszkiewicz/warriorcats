@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'react-jss';
 import WarriorTile from './WarriorTile';
-import BackToListButton from './BackToListButton';
+import BackToPreviousPageButton from './BackToPreviousPageButton';
 
 const styles = {
     constainer: {
@@ -16,7 +16,7 @@ function WarriorList({ classes, warriors, title, showBackButton }) {
 
     return (
         <div className={classes.container}>
-            {showBackButton ? <BackToListButton /> : ''}
+            {showBackButton ? <BackToPreviousPageButton /> : ''}
             <h3 className={classes.title}>{title}</h3>
             {warriors.map((warrior, key) =>
                 <WarriorTile key={key} warrior={warrior} />

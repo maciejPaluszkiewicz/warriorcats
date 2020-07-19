@@ -11,11 +11,11 @@ const styles = {
 function BackToListButton({ classes }) {
 
     const history = useHistory();
-    const goToWarriorsList = () => { history.push(`/`) };
+    const goToList = () => { history.push(`/`) };
 
     return (
         <>
-            <button className={classes.backToList} onClick={goToWarriorsList}>Back To List </button>
+            <button className={classes.backToList} onClick={goToList}>Back To List </button>
         </>
     );
 }

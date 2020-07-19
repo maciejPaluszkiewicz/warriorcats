@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createWarrior } from '../redux/actions';
 import { getNextFreeID } from '../redux/selectors';
 import { createRandomName, createRandomSkill } from '../utilities';
-import BackToListButton from './BackToListButton';
+import BackToPreviousPageButton from './BackToPreviousPageButton';
 import { useHistory } from 'react-router-dom';
 import { classes } from 'istanbul-lib-coverage';
 
@@ -60,7 +60,7 @@ function WarriorCreator({ createWarrior, nextFreeId }) {
 
     return (
         <div className='container'>
-            <BackToListButton />
+            <BackToPreviousPageButton />
             <h1>WARRIOR CREATOR</h1>
 
             <form onSubmit={handleSubmit}>

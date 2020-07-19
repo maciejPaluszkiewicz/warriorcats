@@ -3,6 +3,7 @@ import {
     HIRE_WARRIOR, DISMISS_WARRIOR, RETIRE_WARRIOR, CREATE_WARRIOR
 } from './actions';
 import { initialState } from './store';
+import { setCache } from '../cacheManager';
 
 
 export default function RootReducer(state = initialState, action) {
@@ -31,6 +32,7 @@ export default function RootReducer(state = initialState, action) {
                 }
                 return { ...warrior };
             });
+            setCache(increasedWarriors);
             return {
                 ...state,
                 warriors: increasedWarriors
@@ -42,18 +44,21 @@ export default function RootReducer(state = initialState, action) {
                 }
                 return { ...warrior };
             });
+            setCache(decreasedWarriors);
             return {
                 ...state,
                 warriors: decreasedWarriors
             }
         case RETIRE_WARRIOR:
             const remainingWarriors = state.warriors.filter(warrior => warrior.id !== action.warrior.id);
+            setCache(remainingWarriors);
             return {
                 ...state,
                 warriors: remainingWarriors
             }
         case CREATE_WARRIOR:
             const expandedWarriors = [...state.warriors, action.warrior];
+            setCache(expandedWarriors);
             return {
                 ...state,
                 warriors: expandedWarriors

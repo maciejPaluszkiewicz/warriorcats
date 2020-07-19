@@ -5,7 +5,7 @@ import { getWarriors } from '../redux/selectors';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { retireWarrior } from '../redux/actions';
-import BackToListButton from './BackToListButton';
+import BackToPreviousPageButton from './BackToPreviousPageButton';
 
 const styles = {
     backToList: {
@@ -65,7 +65,7 @@ function WarriorDetails({ classes, warriors, retireWarrior }) {
 
     return (
         <div className={classes.container}>
-            <BackToListButton />
+            <BackToPreviousPageButton />
             <h2 className={classes.name}>{warrior.name}</h2>
             <div className={classes.details}>
                 <img className={classes.face} alt='catface' src={warrior.image} />
